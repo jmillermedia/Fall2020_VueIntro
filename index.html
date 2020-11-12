@@ -9,14 +9,14 @@
 </head>
 <body>
     <main id="app">
-        <h1>{{ message }}</h1>
+        <h1 @click="clickHeader">{{ message }}</h1>
         <p>{{anotherMessage}}</p>
 
-        <!-- show the prof data in the collection from main.js -->
+        <!-- show the prof data in the profs collection from main.js -->
 
         <ul>
-            <li v-for="item in collection">
-                <p>{{item.name}}, {{item.role}}, {{item.nickname}}</p>
+            <li v-for="item in profs">
+                <p v-on:click="logClicked">{{item.name}}, {{item.role}}, {{item.nickname}}</p>
             </li>
         </ul>
     </main>
