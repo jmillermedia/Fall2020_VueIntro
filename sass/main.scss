@@ -1,0 +1,19 @@
+.remove-prof {
+    padding: 8px 12px;
+    color: white;
+    background-color: #333;
+    border: thin solid lightgray;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #444;
+    }
+}
+
+.prof-button-modifier { text-decoration: none; }
+
+.bio-data { display: none; }
+
+.show-bio { display: block !important; }

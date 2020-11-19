@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Working with Vue</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> 
+    <!-- vue library linked in here. documentation at vuejs.org -->
 </head>
 <body>
     <main id="app">
-        <h1 @click="clickHeader">{{ message }}</h1>
+        <h1 @click="clickHeader">{{ message }}</h1> <!-- vue binding @click-->
         <p>{{anotherMessage}}</p>
 
         <!-- show the prof data in the profs collection from main.js -->
 
         <ul>
-            <li v-for="item in profs">
-                <p v-on:click="logClicked">{{item.name}}, {{item.role}}, {{item.nickname}}</p>
+            <li v-for="item in profs"> <!-- 'item' is user defined -->
+                <p v-on:click="logClicked">{{item.name}}, {{item.role}}, {{item.nickname}}</p> 
+                <a href="" class="remove-prof" @click.prevent="removeProf(item)" :class="{ 'prof-button-modifier' : removeAformat}">Remove {{item.name}}</a> <!-- :href=""-->
+                <!-- @click.prevent is the same as using preventDefault in JS -->
+                <!-- ':class' is the shortform of 'v-bind:class' -->
             </li>
         </ul>
+
+        <section class="bio-data" :class="{'show-bio' : showBioData}">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, non debitis ipsam corrupti quam unde impedit, minus voluptatibus officiis ullam saepe tenetur ab architecto, amet omnis facere repellendus quo doloribus!</p>
+        </section>
     </main>
     <script src="js/main.js" type="module"></script>
 </body>
