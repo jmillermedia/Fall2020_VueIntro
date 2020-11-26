@@ -5,7 +5,7 @@ let errorCodes = {
     503: 'Service is unavailable! The servers are all having a coffee break.'
 }
 
-async function fetchData(sourceURL){
+async function fetchdata(sourceURL){
     let resource = await fetch(sourceURL).then(response => {
         if (response.status !== 200) { // bang operator - means "does not equal" (or a falsy value)
             throw new Error(`Danger Will Robinson! Here there be monsters! ERROR: ${response.status}`);
@@ -24,4 +24,4 @@ async function postData(sourceURL) {
     return "You are using the postData API endpoint.";
 }
 
-export { fetchData, postData };
+export { fetchdata, postData };

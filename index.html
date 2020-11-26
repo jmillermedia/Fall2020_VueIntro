@@ -16,16 +16,17 @@
         <!-- show the prof data in the profs collection from main.js -->
 
         <ul>
-            <li v-for="item in profs"> <!-- 'item' is user defined -->
-                <p v-on:click="logClicked">{{item.name}}, {{item.role}}, {{item.nickname}}</p> 
-                <a href="" class="remove-prof" @click.prevent="removeProf(item)" :class="{ 'prof-button-modifier' : removeAformat}">Remove {{item.name}}</a> <!-- :href=""-->
+            <li v-for="prof in profs"> <!-- 'prof' is user defined -->
+                <p v-on:click="logClicked">{{prof.name}}, {{prof.role}}, {{prof.nickname}}</p> 
+                <a href="" class="remove-prof" @click.prevent="removeProf(prof)" :class="{ 'prof-button-modifier' : removeAformat}">Show {{prof.name}}'s info</a> <!-- :href=""-->
                 <!-- @click.prevent is the same as using preventDefault in JS -->
                 <!-- ':class' is the shortform of 'v-bind:class' -->
             </li>
         </ul>
 
         <section class="bio-data" :class="{'show-bio' : showBioData}">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, non debitis ipsam corrupti quam unde impedit, minus voluptatibus officiis ullam saepe tenetur ab architecto, amet omnis facere repellendus quo doloribus!</p>
+            <h1>{{ currentProfData.name }}</h1>
+            <p>{{ currentProfData.nickname}}</p>
         </section>
     </main>
     <script src="js/main.js" type="module"></script>
