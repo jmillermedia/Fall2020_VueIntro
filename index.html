@@ -15,13 +15,9 @@
 
         <!-- show the prof data in the profs collection from main.js -->
 
-        <ul>
-            <li v-for="prof in profs"> <!-- 'prof' is user defined -->
-                <p v-on:click="logClicked">{{prof.name}}, {{prof.role}}, {{prof.nickname}}</p> 
-                <a href="" class="remove-prof" @click.prevent="removeProf(prof)" :class="{ 'prof-button-modifier' : removeAformat}">Show {{prof.name}}'s info</a> <!-- :href=""-->
-                <!-- @click.prevent is the same as using preventDefault in JS -->
-                <!-- ':class' is the shortform of 'v-bind:class' -->
-            </li>
+        <ul >
+            <prof-card v-for="prof in profs" :prof="prof" key="prof.ID">
+            </prof-card>
         </ul>
 
         <section class="bio-data" :class="{'show-bio' : showBioData}">

@@ -1,8 +1,24 @@
 import { fetchdata } from "./components/DataMiner.js";
+import ProfCard from "./components/TheProfCard.js";
 
 // this is a variation on our module theme
 
 const myVM = (() => {
+    // Vue.component('prof-card', {
+    //     props: ['prof'],
+
+    //     template: `<li>
+    //                 <img :src="'images/' + prof.avatar" :alt='prof.name + " Image"'>
+    //                 <p>Prof Name: {{prof.name}}</p> 
+    //                 <a href="" class="remove-prof">Show {{prof.name}} Info</a>
+    //                 <a href="" class="remove-prof">Remove {{prof.name}}</a>
+    //                 </li>`, // you can only have one root element in a Vue template.
+
+    //                 created: function() {
+    //                     console.log(`loaded ${this.prof.name}'s card.`);
+    //                 }
+    // });
+
     let vue_vm = new Vue({
         // link Vue to an element in our HTML
         // el: "#app",
@@ -49,6 +65,10 @@ const myVM = (() => {
                 // make the selected prof's data visible
                 this.currentProfData = target;
             }
+        },
+
+        components: {
+            "prof-card": ProfCard
         }
     }).$mount("#app") // also connects Vue to your wrapper in HTML (same as el: "#app")
 })();
